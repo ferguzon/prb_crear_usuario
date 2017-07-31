@@ -72,6 +72,27 @@ namespace Negocio
 
         } // fin de insertar
 
+        public List<Entidad.tblusuario> ObtenerListaUsuarioNegocio()
+        {
 
+            Datos.usuarioDatos dc = null;
+            List<Entidad.tblusuario> lista = null;
+
+            try
+            {
+
+                dc = new Datos.usuarioDatos();
+                lista = dc.ObtenerUsuarioDatos();
+
+                return lista;
+
+            }
+            catch (Exception err)
+            {
+
+                throw err;
+            }
+
+        } // fin obtenerlistausuarionegocio
     }
 }

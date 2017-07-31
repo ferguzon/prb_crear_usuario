@@ -99,8 +99,9 @@ namespace Prueba_creacion_usuario
 
                 usuario.nombreUsuario = txtNombreUsuario.Text.ToUpper().Trim();
                 usuario.loginUsuario = txtLoginUsuario.Text.Trim();
-                usuario.claveUsuario = CreateMD5(txtClaveUsuario.Text.Trim());
+                //usuario.claveUsuario = CreateMD5(txtClaveUsuario.Text.Trim());
                 usuario.fechaModificacionUsuario = DateTime.Today;
+                usuario.idUsuario = int.Parse(tssIdUsuario.Text);
 
                 dc.ActualizarUsuarioNegocio(usuario);
 
@@ -156,9 +157,12 @@ namespace Prueba_creacion_usuario
 
             Negocio.usuarioNegocio dc = null;
             Entidad.tblusuario usuario = null;
-
+                        
             try
             {
+
+                Cursor.Current = Cursors.WaitCursor;
+
                 dc = new Negocio.usuarioNegocio();
                 usuario = new Entidad.tblusuario();
 
@@ -166,20 +170,58 @@ namespace Prueba_creacion_usuario
                 txtNombreUsuario.Text = usuario.nombreUsuario;
                 txtLoginUsuario.Text = usuario.loginUsuario;
                 txtClaveUsuario.Text = usuario.claveUsuario;
+                tssIdUsuario.Text = usuario.idUsuario.ToString();
+                txtClaveUsuario.Enabled = false;
+
+                Cursor.Current = Cursors.Arrow;
 
                 tssEstado.Text = "Editando";
+
             }
             catch (Exception)
             {
 
-                throw;
+                MessageBox.Show("El usuario no se encontró en la base de datos. Por favor verifique la información ingresada.", "Dato no encontrado");
+                
             }
 
         }
 
         private void frmIngresoUsuario_Load(object sender, EventArgs e)
         {
+
             tssEstado.Text = "Creando";
+           
+            //tsMenu.ImageScalingSize = new Size(40, 40);
+
+        }
+
+        private void txtClaveUsuario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+           
+
+        }
+
+        private void clicAceptar(KeyPressEventArgs e)
+        {
+
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+
+                
+
+            }
+
+
+        }
+
+        private void listadoDeUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+            frmReporteUsuario formReporte = new frmReporteUsuario();
+            formReporte.Show();
+
         }
     }
 }

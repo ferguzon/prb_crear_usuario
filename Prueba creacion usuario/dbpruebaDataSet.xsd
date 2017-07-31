@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dbpruebaDataSet" targetNamespace="http://tempuri.org/dbpruebaDataSet.xsd" xmlns:mstns="http://tempuri.org/dbpruebaDataSet.xsd" xmlns="http://tempuri.org/dbpruebaDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="dbpruebaConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="dbpruebaConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Prueba_creacion_usuario.Properties.Settings.GlobalReference.Default.dbpruebaConnectionString" Provider="MySql.Data.MySqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tblhistorialTableAdapter" GeneratorDataComponentClassName="tblhistorialTableAdapter" Name="tblhistorial" UserDataComponentName="tblhistorialTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="dbpruebaConnectionString (Settings)" DbObjectName="dbprueba.tblhistorial" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `idRegistro`, `fechaCambio`, `loginCreacion` FROM `tblhistorial`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tblusuarioTableAdapter" GeneratorDataComponentClassName="tblusuarioTableAdapter" Name="tblusuario" UserDataComponentName="tblusuarioTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="dbpruebaConnectionString (Settings)" DbObjectName="dbprueba.tblusuario" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `idUsuario`, `loginUsuario`, `nombreUsuario`, `claveUsuario`, `fechaCreacionUsuario`, `fechaModificacionUsuario` FROM `tblusuario`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dbpruebaDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="dbpruebaDataSet" msprop:Generator_UserDSName="dbpruebaDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="tblhistorial" msprop:Generator_TableClassName="tblhistorialDataTable" msprop:Generator_TableVarName="tabletblhistorial" msprop:Generator_TablePropName="tblhistorial" msprop:Generator_RowDeletingName="tblhistorialRowDeleting" msprop:Generator_RowChangingName="tblhistorialRowChanging" msprop:Generator_RowEvHandlerName="tblhistorialRowChangeEventHandler" msprop:Generator_RowDeletedName="tblhistorialRowDeleted" msprop:Generator_UserTableName="tblhistorial" msprop:Generator_RowChangedName="tblhistorialRowChanged" msprop:Generator_RowEvArgName="tblhistorialRowChangeEvent" msprop:Generator_RowClassName="tblhistorialRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tblusuario" msprop:Generator_TableClassName="tblusuarioDataTable" msprop:Generator_TableVarName="tabletblusuario" msprop:Generator_TablePropName="tblusuario" msprop:Generator_RowDeletingName="tblusuarioRowDeleting" msprop:Generator_RowChangingName="tblusuarioRowChanging" msprop:Generator_RowEvHandlerName="tblusuarioRowChangeEventHandler" msprop:Generator_RowDeletedName="tblusuarioRowDeleted" msprop:Generator_UserTableName="tblusuario" msprop:Generator_RowChangedName="tblusuarioRowChanged" msprop:Generator_RowEvArgName="tblusuarioRowChangeEvent" msprop:Generator_RowClassName="tblusuarioRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

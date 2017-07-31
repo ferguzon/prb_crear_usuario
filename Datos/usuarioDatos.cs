@@ -82,5 +82,27 @@ namespace Datos
             } // try
 
         } // fin del actualizar
+
+        public List<Entidad.tblusuario> ObtenerUsuarioDatos()
+        {
+
+            Entidad.dbpruebaEntities dc = null;
+            List<Entidad.tblusuario> lista = null;
+
+            try
+            {
+                dc = new Entidad.dbpruebaEntities();
+                lista = dc.tblusuario.ToList();
+
+                return lista;
+
+            }
+            catch (Exception err)
+            {
+
+                throw err;
+            }
+
+        }
     }
 }

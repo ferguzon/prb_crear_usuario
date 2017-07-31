@@ -38,13 +38,16 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.informesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listadoDeUsuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsMenu = new System.Windows.Forms.ToolStrip();
             this.tsMenuNuevo = new System.Windows.Forms.ToolStripButton();
-            this.tsMenuAgregar = new System.Windows.Forms.ToolStripButton();
+            this.tsMenuAbrir = new System.Windows.Forms.ToolStripButton();
             this.tsMenuGuardar = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.stsEstado = new System.Windows.Forms.StatusStrip();
             this.tssEstado = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tssIdUsuario = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1.SuspendLayout();
             this.tsMenu.SuspendLayout();
             this.stsEstado.SuspendLayout();
@@ -53,7 +56,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(37, 76);
+            this.label1.Location = new System.Drawing.Point(36, 97);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(58, 17);
             this.label1.TabIndex = 0;
@@ -61,7 +64,7 @@
             // 
             // txtNombreUsuario
             // 
-            this.txtNombreUsuario.Location = new System.Drawing.Point(142, 70);
+            this.txtNombreUsuario.Location = new System.Drawing.Point(141, 102);
             this.txtNombreUsuario.MaxLength = 75;
             this.txtNombreUsuario.Name = "txtNombreUsuario";
             this.txtNombreUsuario.Size = new System.Drawing.Size(284, 22);
@@ -70,7 +73,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(38, 109);
+            this.label2.Location = new System.Drawing.Point(37, 130);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(57, 17);
             this.label2.TabIndex = 2;
@@ -78,7 +81,7 @@
             // 
             // txtLoginUsuario
             // 
-            this.txtLoginUsuario.Location = new System.Drawing.Point(142, 109);
+            this.txtLoginUsuario.Location = new System.Drawing.Point(141, 130);
             this.txtLoginUsuario.MaxLength = 20;
             this.txtLoginUsuario.Name = "txtLoginUsuario";
             this.txtLoginUsuario.Size = new System.Drawing.Size(133, 22);
@@ -87,7 +90,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(40, 147);
+            this.label3.Location = new System.Drawing.Point(37, 158);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(81, 17);
             this.label3.TabIndex = 4;
@@ -95,18 +98,20 @@
             // 
             // txtClaveUsuario
             // 
-            this.txtClaveUsuario.Location = new System.Drawing.Point(142, 147);
+            this.txtClaveUsuario.Location = new System.Drawing.Point(141, 158);
             this.txtClaveUsuario.MaxLength = 20;
             this.txtClaveUsuario.Name = "txtClaveUsuario";
             this.txtClaveUsuario.Size = new System.Drawing.Size(133, 22);
             this.txtClaveUsuario.TabIndex = 2;
             this.txtClaveUsuario.UseSystemPasswordChar = true;
+            this.txtClaveUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtClaveUsuario_KeyPress);
             // 
             // menuStrip1
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.archivoToolStripMenuItem});
+            this.archivoToolStripMenuItem,
+            this.informesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(444, 28);
@@ -124,16 +129,31 @@
             // salirToolStripMenuItem
             // 
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(113, 26);
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
+            // 
+            // informesToolStripMenuItem
+            // 
+            this.informesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.listadoDeUsuariosToolStripMenuItem});
+            this.informesToolStripMenuItem.Name = "informesToolStripMenuItem";
+            this.informesToolStripMenuItem.Size = new System.Drawing.Size(79, 24);
+            this.informesToolStripMenuItem.Text = "Informes";
+            // 
+            // listadoDeUsuariosToolStripMenuItem
+            // 
+            this.listadoDeUsuariosToolStripMenuItem.Name = "listadoDeUsuariosToolStripMenuItem";
+            this.listadoDeUsuariosToolStripMenuItem.Size = new System.Drawing.Size(211, 26);
+            this.listadoDeUsuariosToolStripMenuItem.Text = "Listado de usuarios";
+            this.listadoDeUsuariosToolStripMenuItem.Click += new System.EventHandler(this.listadoDeUsuariosToolStripMenuItem_Click);
             // 
             // tsMenu
             // 
             this.tsMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.tsMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsMenuNuevo,
-            this.tsMenuAgregar,
+            this.tsMenuAbrir,
             this.tsMenuGuardar,
             this.toolStripSeparator});
             this.tsMenu.Location = new System.Drawing.Point(0, 28);
@@ -152,15 +172,15 @@
             this.tsMenuNuevo.Text = "&New";
             this.tsMenuNuevo.Click += new System.EventHandler(this.newToolStripButton_Click);
             // 
-            // tsMenuAgregar
+            // tsMenuAbrir
             // 
-            this.tsMenuAgregar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsMenuAgregar.Image = ((System.Drawing.Image)(resources.GetObject("tsMenuAgregar.Image")));
-            this.tsMenuAgregar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsMenuAgregar.Name = "tsMenuAgregar";
-            this.tsMenuAgregar.Size = new System.Drawing.Size(24, 24);
-            this.tsMenuAgregar.Text = "&Open";
-            this.tsMenuAgregar.Click += new System.EventHandler(this.tsMenuAgregar_Click);
+            this.tsMenuAbrir.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsMenuAbrir.Image = ((System.Drawing.Image)(resources.GetObject("tsMenuAbrir.Image")));
+            this.tsMenuAbrir.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsMenuAbrir.Name = "tsMenuAbrir";
+            this.tsMenuAbrir.Size = new System.Drawing.Size(24, 24);
+            this.tsMenuAbrir.Text = "&Open";
+            this.tsMenuAbrir.Click += new System.EventHandler(this.tsMenuAgregar_Click);
             // 
             // tsMenuGuardar
             // 
@@ -181,7 +201,8 @@
             // 
             this.stsEstado.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.stsEstado.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tssEstado});
+            this.tssEstado,
+            this.tssIdUsuario});
             this.stsEstado.Location = new System.Drawing.Point(0, 193);
             this.stsEstado.Name = "stsEstado";
             this.stsEstado.Size = new System.Drawing.Size(444, 22);
@@ -192,6 +213,11 @@
             // 
             this.tssEstado.Name = "tssEstado";
             this.tssEstado.Size = new System.Drawing.Size(0, 17);
+            // 
+            // tssIdUsuario
+            // 
+            this.tssIdUsuario.Name = "tssIdUsuario";
+            this.tssIdUsuario.Size = new System.Drawing.Size(0, 17);
             // 
             // frmIngresoUsuario
             // 
@@ -238,11 +264,14 @@
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
         private System.Windows.Forms.ToolStrip tsMenu;
         private System.Windows.Forms.ToolStripButton tsMenuNuevo;
-        private System.Windows.Forms.ToolStripButton tsMenuAgregar;
+        private System.Windows.Forms.ToolStripButton tsMenuAbrir;
         private System.Windows.Forms.ToolStripButton tsMenuGuardar;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator;
         private System.Windows.Forms.StatusStrip stsEstado;
         private System.Windows.Forms.ToolStripStatusLabel tssEstado;
+        private System.Windows.Forms.ToolStripStatusLabel tssIdUsuario;
+        private System.Windows.Forms.ToolStripMenuItem informesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem listadoDeUsuariosToolStripMenuItem;
     }
 }
 

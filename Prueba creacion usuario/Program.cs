@@ -16,7 +16,7 @@ namespace Prueba_creacion_usuario
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmIngresoUsuario());
+            Application.Run(new frmIniciarSesion());
         }
     }
 }
