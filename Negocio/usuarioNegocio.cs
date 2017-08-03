@@ -29,6 +29,7 @@ namespace Negocio
 
         } // fin de insertar
 
+        public void 
         public Entidad.tblusuario ObtenerUsuarioDatos(string loginUsuario)
         {
 
